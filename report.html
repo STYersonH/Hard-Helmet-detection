@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe de Incidente</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        footer {
+            margin-top: 20px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <h1>Informe de Incidente - CONSTRUCTORA</h1>
+
+    <p>Fecha del Incidente: <span id="fecha_incidente">%fecha_actual%</span></p>
+    <p>Persona Encargada: <span id="persona_encargada">%persona_encargada%</span></p>
+    <p>Turno: <span id="turno">%turno%</span></p>
+
+    <h2>Descripción del Incidente:</h2>
+    <p>Se ha detectado personal ingresando a las instalaciones de obra sin casco de seguridad.</p>
+
+    <h2>Acciones Tomadas:</h2>
+    <p>
+        Se debera informar a los involucrados el asunto y establecer las medidas de seguridad
+    </p>
+
+    <footer>
+        <p>
+            Informes automaticos, no responder el mensaje.
+        </p>
+    </footer>
+
+    <script>
+        // Obtener la fecha y hora de creación del informe
+        const fechaCreacion = new Date();
+        const fechaCreacionFormato = fechaCreacion.toLocaleDateString();
+        const horaCreacionFormato = fechaCreacion.toLocaleTimeString();
+
+        // Mostrar la fecha y hora de creación en el documento
+        document.getElementById("fecha_creacion").textContent = fechaCreacionFormato;
+        document.getElementById("hora_creacion").textContent = horaCreacionFormato;
+
+        // Establecer la hora actual en el campo de hora del incidente
+        const horaActual = fechaCreacion.getHours().toString().padStart(2, '0') + ':' + fechaCreacion.getMinutes().toString().padStart(2, '0');
+        document.getElementById("hora_incidente").textContent = horaActual;
+    </script>
+</body>
+</html>

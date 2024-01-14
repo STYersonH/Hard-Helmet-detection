@@ -1,0 +1,8 @@
+Flask==2.1.0
+Flask-WTF==0.15.1
+opencv-python==4.5.5.62
+wtforms==3.0.0
+werkzeug==2.0.1
+Ultralytics>=0.12.2
+pygame==2.1.1
+yagmail~=0.15.293

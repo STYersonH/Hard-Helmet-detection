@@ -10,7 +10,6 @@ from werkzeug.utils import secure_filename
 from wtforms.validators import InputRequired,NumberRange
 import os
 
-
 # Required to run the YOLOv8 model
 import cv2
 
@@ -21,7 +20,6 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'muhammadmoin'
 app.config['UPLOAD_FOLDER'] = 'static/files'
-
 
 #Use FlaskForm to get input video file  from user
 class UploadFileForm(FlaskForm):

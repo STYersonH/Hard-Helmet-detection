@@ -116,5 +116,4 @@ def video_detection(path_x):
 
         yield img  # retornar el flujo de imagenes procesadas
 
-
 cv2.destroyAllWindows()

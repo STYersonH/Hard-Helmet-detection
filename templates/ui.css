@@ -1,0 +1,23 @@
+.principal-webcam {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.webcam{
+  background-color:black;
+  width: 900px;
+  height: 550px;
+  border-radius: 35px;
+  object-fit: contain;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.webcam img {
+  width: 890px;
+  height: 540px;
+  border-radius: 34px;
+}

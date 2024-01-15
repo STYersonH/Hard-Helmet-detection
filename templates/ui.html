@@ -7,71 +7,112 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Video</title>
     <style>
-        body{
-            color:white;
-            margin:0px;
-            padding:0px;
-        }
-        header.feature-box.top{
-        background-color:black;
-        height:100px;
+
+      body{
+        font-family:Helvetica, sans-serif;
         margin:0px;
-        padding:20px;
-        text-align:center;
-        }
-        header.feature-box.second{
-        background-color:blue;
-        height:50px;
-        text-align:center;
-        margin-top:-25px;
-        }
-        .features{
-          background-color:black;
-          width: 900px;
-          height: 700px;
-          border-radius: 35px;
-          object-fit: contain;
-          margin:20px;
-        }
-        section.col-sm{
-          background-color:black;
-          width: 1000px;
-          height: 650px;
-          border-radius: 35px;
-          object-fit: contain;
-          margin:40px;
-        }
+        padding:0px;
+        height: 100vh;
+        background: linear-gradient(to left top, #071952, #35A29F);
+        background-size: cover;
 
-        img{
-          width: 900px;
-          height: 600px;
-          border-radius: 35px;
-          object-fit: contain;
-          margin:40px;
-        }
+        font-family: 'Jost', sans-serif;
+        font-family: 'Poppins', sans-serif;
 
-        .new{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      /* HEADER */
+      .header {
+        padding: 20px 80px 0 80px;
+
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .header-logo img{
+        height: 80px;
+      }
+
+      .header-items {
+        display: flex;
+        gap: 20px;
+      }
+
+      .header-items li {
+        list-style: none;
+      }
+
+      .header-items li a {
         color:black;
-        margin:0px;
-        padding:10px;
-        background-color:green;
-        margin:0px;
-        margin-top:-10px;
-        }
+        text-decoration:none;
+        width:100%;
+
+        padding: 7px 20px;
+
+        background-color: white;
+        border-radius: 10px;
+
+        transition: background-color 0.2s ease;
+      }
+
+      .header-items li a:hover,
+      .header-items li .activo {
+        background-color: #F29C11;
+        color: white;
+      }
+
+      /* BODY */
+      .principal {
+        margin-bottom: 30px;
+      }
+
+      .principal-webcam {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+      }
+
+      .webcam{
+        background-color:black;
+        width: 750px;
+        height: 550px;
+        border-radius: 35px;
+        object-fit: contain;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .webcam img {
+        width: 740px;
+        height: 540px;
+        border-radius: 35px;
+      }
+
     </style>
 </head>
 <body>
-<header class="feature-box top">
-    <h1><strong>Object Detection using YOLOv8</strong></h1>
-</header>
-<header class="feature-box second">
-     <h1><strong>Output Video</strong></h1>
-</header>
+  <header class="header">
+        <div class="header-logo">
+            <img src="../static/images/logo.png" alt="logo">
+        </div>
+        <nav>
+            <ul class="header-items">
+                <li><a href="/home">Home</a></li>
+                <!-- <li><a href="/FrontPage">Video</a></li> -->
+                <li><a href="/webcam" class="activo">LiveWebcam</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <section class="col-sm " >
+  <main class="principal-webcam">
+    <section class="webcam" >
           <img src="{{ url_for('webapp') }}"   alt="Upload video">
-
-  </section>
-
+    </section>
+  </main>
 </body>
 </html>

@@ -8,6 +8,9 @@ first_point = None
 second_point = None
 drawing = False
 rectangle_complete = False
+color = (0, 255, 0)  # Default color is red
+label = 1  # Default label is 1
+
 
 # List to store all drawn boxes
 boxes = []
@@ -38,7 +41,7 @@ def click_event(event, x, y, flags, params):
             print(f"First point: {first_point}, Second point: {second_point}")
 
             # Add the box to the list of boxes
-            boxes.append((first_point, second_point))
+            boxes.append(((first_point, second_point), color))
 
             # Reset the drawing and rectangle_complete flags for the next rectangle
             drawing = False
@@ -50,17 +53,17 @@ def click_event(event, x, y, flags, params):
             width = abs(first_point[0] - second_point[0]) / 800
             height = abs(first_point[1] - second_point[1]) / 800
 
-            # Append coordinates to the file
+            # Append coordinates to the file with the current label
             with open(f'labels/hard_hat_workers400_png.rf.{unique_id}.txt', 'a') as f:
-                f.write(f"1 {x_center:.6f} {y_center:.6f} {width:.6f} {height:.6f}\n")
+                f.write(f"{label} {x_center:.6f} {y_center:.6f} {width:.6f} {height:.6f}\n")
 
     elif event == cv2.EVENT_MOUSEMOVE and drawing and not rectangle_complete:
-        # Draw all the boxes
+        # Draw all the boxes with their colors
         img_temp = padded_img.copy()
-        for box in boxes:
-            cv2.rectangle(img_temp, box[0], box[1], (255, 0, 0), 2)
+        for box, box_color in boxes:
+            cv2.rectangle(img_temp, box[0], box[1], box_color, 2)
         # Draw rectangle from first point to current mouse position
-        cv2.rectangle(img_temp, first_point, (x, y), (255, 0, 0), 2)
+        cv2.rectangle(img_temp, first_point, (x, y), color, 2)
         cv2.imshow('image', img_temp)
 
 # Load the image
@@ -92,7 +95,14 @@ cv2.setMouseCallback('image', click_event)
 
 # Wait for a key press and close the window if 'q' is pressed
 while True:
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    key = cv2.waitKey(1) & 0xFF
+    if key == ord('h'):
+        color = (0, 0, 255)  # Red color
+        label = 0  # Label for 'h'
+    elif key == ord('c'):
+        color = (0, 255, 0)  # Green color
+        label = 1  # Label for 'c'
+    elif key == ord('q'):
         break
 
 cv2.destroyAllWindows()

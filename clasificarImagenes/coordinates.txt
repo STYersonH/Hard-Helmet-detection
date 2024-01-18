@@ -1,0 +1,8 @@
+First point: (157, 86), Second point: (476, 379)
+First point: (586, 99), Second point: (893, 632)
+First point: (1052, 98), Second point: (1364, 369)
+First point: (291, 203), Second point: (628, 152)
+First point: (310, 307), Second point: (641, 661)
+First point: (117, 202), Second point: (277, 315)
+First point: (551, 367), Second point: (668, 475)
+First point: (77, 485), Second point: (265, 590)

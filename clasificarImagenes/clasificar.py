@@ -8,7 +8,7 @@ first_point = None
 second_point = None
 drawing = False
 rectangle_complete = False
-color = (255, 0, 0)  # Default color is red
+color = (0, 255, 0)  # Default color is red
 label = 1  # Default label is 1
 
 # List to store all drawn boxes

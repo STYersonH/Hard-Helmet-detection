@@ -11,6 +11,7 @@ rectangle_complete = False
 color = (0, 255, 0)  # Default color is red
 label = 1  # Default label is 1
 
+
 # List to store all drawn boxes
 boxes = []
 
